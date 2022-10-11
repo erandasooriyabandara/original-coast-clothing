@@ -24,6 +24,7 @@ const express = require("express"),
 
 var users = {};
 
+app.use(bp.json());
 // Parse application/x-www-form-urlencoded
 app.use(
   urlencoded({
