@@ -12,7 +12,7 @@
 
 // Import dependencies and set up http server
 const express = require("express"),
-  { urlencoded, json } = require("body-parser"),
+  bp = require("body-parser"),
   crypto = require("crypto"),
   path = require("path"),
   Receive = require("./services/receive"),
@@ -27,7 +27,7 @@ var users = {};
 app.use(bp.json());
 // Parse application/x-www-form-urlencoded
 app.use(
-  urlencoded({
+  bp.urlencoded({
     extended: true
   })
 );
