@@ -13,7 +13,7 @@
 // Import dependencies and set up http server
 const express = require("express"),
   bp = require("body-parser"),
-  crypto = require("crypto"),
+  config = require("./services/config"),
   path = require("path"),
   app = express();
 
