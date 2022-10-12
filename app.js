@@ -50,3 +50,29 @@ app.post("/webhook", (req, res) => {
   console.log(`\u{1F7EA} Received webhook:`);
   console.dir(body, { depth: null });
 });
+
+config.checkEnvVariables();
+
+// Listen for requests :)
+var listener = app.listen(config.port, function () {
+  console.log(`The app is listening on port ${listener.address().port}`);
+  if (
+    Object.keys(config.personas).length == 0 &&
+    config.appUrl &&
+    config.verifyToken
+  ) {
+    console.log(
+      "Is this the first time running?\n" +
+        "Make sure to set the both the Messenger profile, persona " +
+        "and webhook by visiting:\n" +
+        config.appUrl +
+        "/profile?mode=all&verify_token=" +
+        config.verifyToken
+    );
+  }
+
+  if (config.pageId) {
+    console.log("Test your app by messaging:");
+    console.log(`https://m.me/${config.pageId}`);
+  }
+});
