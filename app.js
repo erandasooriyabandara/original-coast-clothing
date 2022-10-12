@@ -49,6 +49,7 @@ app.post("/webhook", (req, res) => {
   let body = req.body;
   console.log(`\u{1F7EA} Received webhook:`);
   console.dir(body, { depth: null });
+  res.status(200).send("EVENT_RECEIVED");
 });
 
 config.checkEnvVariables();
