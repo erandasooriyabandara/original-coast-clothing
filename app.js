@@ -41,7 +41,7 @@ app.get("/", function(_req, res) {
 // Add support for GET requests to our webhook
 app.get("/webhook", (req, res) => {
   console.log("WEBHOOK_VERIFIED");
-  res.status(200).send(challenge);
+  res.status(200).send("WEBHOOK_VERIFIED");
 });
 
 // Create the endpoint for your webhook
